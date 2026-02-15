@@ -7,9 +7,19 @@ use App\Models\Preinscrito;
 
 class PreinscritoPolicy
 {
-    public function viewAny(User $user) {}
-    public function view(User $user, Preinscrito $preinscrito) {}
-    public function create(User $user) {}
-    public function update(User $user, Preinscrito $preinscrito) {}
-    public function delete(User $user, Preinscrito $preinscrito) {}
+    public function viewAny(User $user) {
+        return $user->can('inscripciones.view');
+    }
+    public function view(User $user, Preinscrito $preinscrito) {
+        return $user->can('inscripciones.view');
+    }
+    public function create(User $user) {
+        return $user->can('inscripciones.create');
+    }
+    public function update(User $user, Preinscrito $preinscrito) {
+        return $user->can('inscripciones.update');
+    }
+    public function delete(User $user, Preinscrito $preinscrito) {
+        return $user->can('inscripciones.delete');
+    }
 }
