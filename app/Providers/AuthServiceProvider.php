@@ -31,6 +31,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerPolicies();
+        // Gate::before para Super Admin (bypass total)
+        \Illuminate\Support\Facades\Gate::before(function ($user, $ability) {
+            if ($user->hasRole('Super Admin')) {
+                return true;
+            }
+        });
         // Aquí puedes registrar gates o integraciones futuras con Spatie
     }
 }
