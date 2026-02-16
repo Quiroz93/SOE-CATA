@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Programa;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProgramaRequest;
+use App\Http\Requests\UpdateProgramaRequest;
 
 class ProgramaController extends Controller
 {
@@ -25,7 +26,7 @@ class ProgramaController extends Controller
     {
         // ...
     }
-    public function store(Request $request)
+    public function store(StoreProgramaRequest $request)
     {
         // ...
     }
@@ -33,7 +34,7 @@ class ProgramaController extends Controller
     {
         // ...
     }
-    public function update(Request $request, Programa $programa)
+    public function update(UpdateProgramaRequest $request, Programa $programa)
     {
         // ...
     }
