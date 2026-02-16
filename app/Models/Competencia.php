@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Competencia extends Model
 {
     protected $fillable = [
-        'nombre', 'codigo', 'descripcion', 'programa_id'
+        'nombre', 'codigo', 'descripcion'
     ];
 
-    public function programa()
+    public function programas()
     {
-        return $this->belongsTo(Programa::class);
+        return $this->belongsToMany(Programa::class, 'competencia_programa');
     }
 }
