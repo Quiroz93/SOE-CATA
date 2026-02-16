@@ -9,10 +9,11 @@ class ProgramaController extends Controller
 {
     public function index()
     {
-        return view('public.programas.index');
+        $programas = Programa::published()->latest()->paginate(10);
+        return view('public.programas.index', compact('programas'));
     }
     public function show(Programa $programa)
     {
-        return view('public.programas.show');
+        return view('public.programas.show', compact('programa'));
     }
 }
