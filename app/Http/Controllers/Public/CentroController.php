@@ -9,10 +9,11 @@ class CentroController extends Controller
 {
     public function index()
     {
-        return view('public.centros.index');
+        $centros = Centro::published()->latest()->paginate(10);
+        return view('public.centros.index', compact('centros'));
     }
     public function show(Centro $centro)
     {
-        return view('public.centros.show');
+        return view('public.centros.show', compact('centro'));
     }
 }
