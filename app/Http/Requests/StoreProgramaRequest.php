@@ -8,7 +8,7 @@ class StoreProgramaRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('programas.create');
+        return $this->user()->can('programa.create');
     }
 
     public function rules()

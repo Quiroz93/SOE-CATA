@@ -8,7 +8,7 @@ class UpdateCentroRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('programas.update'); // Ajustar si el permiso es diferente
+        return $this->user()->can('centro.update'); // Ajustar si el permiso es diferente
     }
 
     public function rules()

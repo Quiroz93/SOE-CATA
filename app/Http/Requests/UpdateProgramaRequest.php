@@ -8,7 +8,7 @@ class UpdateProgramaRequest extends FormRequest
 {
     public function authorize()
     {
-        return $this->user()->can('programas.update');
+        return $this->user()->can('programa.update');
     }
 
     public function rules()
