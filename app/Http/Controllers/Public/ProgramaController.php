@@ -14,6 +14,7 @@ class ProgramaController extends Controller
     }
     public function show(Programa $programa)
     {
+        $programa->load('competencias');
         return view('public.programas.show', compact('programa'));
     }
 }
