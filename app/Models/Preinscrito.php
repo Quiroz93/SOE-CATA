@@ -2,37 +2,35 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Modelo que representa la preinscripción de un usuario a un programa en una oferta.
- */
 class Preinscrito extends Model
 {
-    protected $table = 'preinscritos';
+    use HasFactory;
 
     protected $fillable = [
-        'oferta_programa_id',
         'oferta_id',
-        'documento',
+        'oferta_programa_id',
         'nombre',
-        'email',
-        // Agregar otros campos según migración
+        'documento',
+        'correo',
+        'estado',
     ];
 
-    /**
-     * Relación con OfertaPrograma
-     */
-    public function ofertaPrograma()
-    {
-        return $this->belongsTo(OfertaPrograma::class, 'oferta_programa_id');
-    }
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
 
-    /**
-     * Relación directa con Oferta (opcional, para consultas rápidas)
-     */
     public function oferta()
     {
         return $this->belongsTo(Oferta::class);
     }
+
+    public function ofertaPrograma()
+    {
+        return $this->belongsTo(OfertaPrograma::class);
+    }
 }
+

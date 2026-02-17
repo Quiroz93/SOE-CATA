@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Modelo que representa una Oferta educativa.
  */
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
 class Oferta extends Model
 {
 	protected $table = 'ofertas';
@@ -32,5 +36,10 @@ class Oferta extends Model
 	public function ofertaProgramas()
 	{
 		return $this->hasMany(OfertaPrograma::class);
+	}
+
+	public function preinscritos()
+	{
+		return $this->hasMany(Preinscrito::class);
 	}
 }

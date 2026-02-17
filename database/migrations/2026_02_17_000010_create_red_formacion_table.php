@@ -1,6 +1,4 @@
 <?php
-// Tabla: programas
-// Propósito: Almacena los programas de formación.
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -9,18 +7,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('programas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('red_formacion', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('codigo')->unique();
             $table->text('descripcion')->nullable();
+            $table->boolean('estado')->default(true);
             $table->timestamps();
-            // NO red_formacion_id
+            $table->softDeletes();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('programas');
+        Schema::dropIfExists('red_formacion');
     }
 };

@@ -1,34 +1,65 @@
-
 <?php
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Modelo que representa un Programa académico.
  */
 class Programa extends Model
 {
-	protected $fillable = [
-		'nombre', 'codigo', 'descripcion', 'nivel', 'estado'
-	];
+    use HasFactory, SoftDeletes;
 
-	/**
-	 * Relación con OfertaPrograma
-	 */
-	public function ofertaProgramas()
-	{
-		return $this->hasMany(OfertaPrograma::class);
-	}
+    protected $fillable = [
+        'nombre',
+        'codigo',
+        'descripcion',
+        'estado',
+    ];
 
-	public function scopePublished($query)
-	{
-		return $query->where('estado', 'publicado');
-	}
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
 
-	public function competencias()
-	{
-		return $this->belongsToMany(Competencia::class, 'competencia_programa');
-	}
+    public function ofertas()
+    {
+        return $this->belongsToMany(Oferta::class, 'oferta_programa')
+            ->withPivot(['cupos', 'estado', 'fecha_inicio', 'fecha_fin'])
+            ->withTimestamps();
+    }
+        // Relaciones académicas
+        public function detalle()
+        {
+            return $this->hasOne(ProgramaDetalle::class);
+        }
+
+        public function instructores()
+        {
+            return $this->belongsToMany(Instructor::class, 'instructor_programa');
+        }
+
+        public function multimedia()
+        {
+            return $this->hasMany(ProgramaMultimedia::class);
+        }
+
+        public function testimonios()
+        {
+            return $this->hasMany(ProgramaTestimonio::class);
+        }
+    public function redesFormacionRelaciones()
+    {
+        return $this->hasMany(ProgramaRedFormacion::class);
+    }
+
+    public function redesFormacionActivas()
+    {
+        return $this->hasMany(ProgramaRedFormacion::class)
+            ->where('estado', 'activo');
+    }
 }

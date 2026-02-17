@@ -29,7 +29,10 @@ class ProgramaController extends Controller
     }
     public function store(StoreProgramaRequest $request)
     {
-        $programa = Programa::create($request->validated());
+        $data = $request->validated();
+        $redesIds = $request->input('redes_ids', []);
+        $programa = Programa::create($data);
+        $programa->redesFormacion()->sync($redesIds);
         return redirect()->route('admin.programas.index')
             ->with('success', 'Programa creado correctamente.');
     }
@@ -39,7 +42,10 @@ class ProgramaController extends Controller
     }
     public function update(UpdateProgramaRequest $request, Programa $programa)
     {
-        $programa->update($request->validated());
+        $data = $request->validated();
+        $redesIds = $request->input('redes_ids', []);
+        $programa->update($data);
+        $programa->redesFormacion()->sync($redesIds);
         return redirect()->route('admin.programas.index')
             ->with('success', 'Programa actualizado correctamente.');
     }
