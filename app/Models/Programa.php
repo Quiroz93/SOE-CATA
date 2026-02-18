@@ -5,12 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Domain\Programa\Enums\EstadoPrograma;
 
 /**
  * Modelo que representa un Programa académico.
  */
 class Programa extends Model
 {
+    /**
+     * Scope para filtrar programas publicados.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('estado', EstadoPrograma::PUBLICADO->value);
+    }
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
@@ -24,6 +35,7 @@ class Programa extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
+        'estado' => EstadoPrograma::class,
     ];
 
     public function ofertas()
@@ -60,6 +72,6 @@ class Programa extends Model
     public function redesFormacionActivas()
     {
         return $this->hasMany(ProgramaRedFormacion::class)
-            ->where('estado', 'activo');
+            ->where('estado', 'activo'); // Si existe Enum para RedFormacion, refactorizar aquí también
     }
 }
