@@ -12,6 +12,7 @@
         "spatie/laravel-permission": "^7.1"
     },
     "require-dev": {
+        "brianium/paratest": "^7.8",
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.3",
         "laravel/pail": "^1.2.2",
