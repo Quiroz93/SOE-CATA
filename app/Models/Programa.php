@@ -14,4 +14,9 @@ class Programa extends Model
 	{
 		return $query->where('estado', 'publicado');
 	}
+
+	public function competencias()
+	{
+		return $this->belongsToMany(Competencia::class, 'competencia_programa');
+	}
 }
