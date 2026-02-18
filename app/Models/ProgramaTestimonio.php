@@ -4,7 +4,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 class ProgramaTestimonio extends Model
+{
+    use HasFactory;
 {
     protected $table = 'programa_testimonios';
     protected $fillable = [
