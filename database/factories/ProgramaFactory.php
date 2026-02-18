@@ -1,6 +1,9 @@
 <?php
 
+
 namespace Database\Factories;
+
+use App\Domain\Programa\Enums\EstadoPrograma;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -12,25 +15,20 @@ class ProgramaFactory extends Factory
     /**
      * Estado publicado
      */
-    public function publicado(): static
+
+    public function published(): static
     {
-        return $this->state(fn () => ['estado' => 'publicado']);
+        return $this->state(fn () => ['estado' => EstadoPrograma::PUBLICADO]);
     }
 
-    /**
-     * Estado borrador
-     */
-    public function borrador(): static
+    public function draft(): static
     {
-        return $this->state(fn () => ['estado' => 'borrador']);
+        return $this->state(fn () => ['estado' => EstadoPrograma::BORRADOR]);
     }
 
-    /**
-     * Estado inactivo
-     */
-    public function inactivo(): static
+    public function archived(): static
     {
-        return $this->state(fn () => ['estado' => 'inactivo']);
+        return $this->state(fn () => ['estado' => EstadoPrograma::ARCHIVADO]);
     }
 
     /**
@@ -44,7 +42,11 @@ class ProgramaFactory extends Factory
             'nombre' => $this->faker->unique()->sentence(2),
             'codigo' => $this->faker->unique()->bothify('PRG###'),
             'descripcion' => $this->faker->paragraph(),
-            'estado' => $this->faker->randomElement(['borrador', 'publicado', 'inactivo']),
+            'estado' => $this->faker->randomElement([
+                EstadoPrograma::BORRADOR,
+                EstadoPrograma::PUBLICADO,
+                EstadoPrograma::ARCHIVADO,
+            ]),
         ];
     }
 }

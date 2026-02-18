@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Unit\Domain;
 
 use App\Models\Programa;
+use App\Domain\Programa\Enums\EstadoPrograma;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Builder;
 use Tests\TestCase;
@@ -15,9 +16,10 @@ class ProgramaTest extends TestCase
 
     public function test_scope_published_retorna_solo_publicados(): void
     {
-        $publicado = Programa::factory()->create(['estado' => 'publicado']);
-        $borrador = Programa::factory()->create(['estado' => 'borrador']);
-        $inactivo = Programa::factory()->create(['estado' => 'inactivo']);
+
+        $publicado = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO]);
+        $borrador = Programa::factory()->create(['estado' => EstadoPrograma::BORRADOR]);
+        $inactivo = Programa::factory()->create(['estado' => EstadoPrograma::ARCHIVADO]);
 
         $result = Programa::published()->get();
         $this->assertTrue($result->contains($publicado));
@@ -27,7 +29,7 @@ class ProgramaTest extends TestCase
 
     public function test_soft_deletes_oculta_programa(): void
     {
-        $programa = Programa::factory()->create(['estado' => 'publicado']);
+        $programa = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO]);
         $programa->delete();
         $this->assertSoftDeleted($programa);
         $this->assertFalse(Programa::published()->get()->contains($programa));
@@ -35,7 +37,7 @@ class ProgramaTest extends TestCase
 
     public function test_scope_published_no_incluye_borrador(): void
     {
-        Programa::factory()->create(['estado' => 'borrador']);
+        Programa::factory()->create(['estado' => EstadoPrograma::BORRADOR]);
         $result = Programa::published()->get();
         $this->assertCount(0, $result);
     }

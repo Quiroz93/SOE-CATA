@@ -7,6 +7,7 @@ namespace Tests\Feature\Publico;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Programa;
+use App\Domain\Programa\Enums\EstadoPrograma;
 use App\Models\NivelFormacion;
 use App\Models\ProgramaDetalle;
 use App\Models\ProgramaMultimedia;
@@ -20,8 +21,8 @@ class ProgramaPublicoTest extends TestCase
 
     public function test_index_devuelve_solo_programas_publicados(): void
     {
-        $publicado = Programa::factory()->create(['estado' => 'publicado']);
-        $noPublicado = Programa::factory()->create(['estado' => 'borrador']);
+        $publicado = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO]);
+        $noPublicado = Programa::factory()->create(['estado' => EstadoPrograma::BORRADOR]);
         $response = $this->getJson('/api/publico/programas');
         $response->assertOk();
         $ids = collect($response->json('data'))->pluck('id');
@@ -31,7 +32,7 @@ class ProgramaPublicoTest extends TestCase
 
     public function test_show_devuelve_200_si_publicado(): void
     {
-        $programa = Programa::factory()->create(['estado' => 'publicado', 'slug' => 'test-slug']);
+        $programa = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO, 'slug' => 'test-slug']);
         $response = $this->getJson('/api/publico/programas/test-slug');
         $response->assertOk();
         $response->assertJsonFragment(['id' => $programa->id, 'slug' => 'test-slug']);
@@ -39,7 +40,7 @@ class ProgramaPublicoTest extends TestCase
 
     public function test_show_devuelve_404_si_no_publicado(): void
     {
-        $programa = Programa::factory()->create(['estado' => 'borrador', 'slug' => 'no-publicado']);
+        $programa = Programa::factory()->create(['estado' => EstadoPrograma::BORRADOR, 'slug' => 'no-publicado']);
         $response = $this->getJson('/api/publico/programas/no-publicado');
         $response->assertNotFound();
     }
@@ -47,7 +48,7 @@ class ProgramaPublicoTest extends TestCase
     public function test_estructura_json_coincide_con_resource(): void
     {
         $nivel = NivelFormacion::factory()->create(['nombre' => 'Tecnólogo']);
-        $programa = Programa::factory()->create(['estado' => 'publicado', 'nivel_formacion_id' => $nivel->id]);
+        $programa = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO, 'nivel_formacion_id' => $nivel->id]);
         $response = $this->getJson('/api/publico/programas');
         $response->assertOk();
         $response->assertJsonStructure([
@@ -60,7 +61,7 @@ class ProgramaPublicoTest extends TestCase
 
     public function test_paginacion_funciona_correctamente(): void
     {
-        Programa::factory()->count(30)->create(['estado' => 'publicado']);
+        Programa::factory()->count(30)->create(['estado' => EstadoPrograma::PUBLICADO]);
         $response = $this->getJson('/api/publico/programas?page=2');
         $response->assertOk();
         $this->assertEquals(2, $response->json('meta.current_page'));
@@ -68,7 +69,7 @@ class ProgramaPublicoTest extends TestCase
 
     public function test_cache_no_altera_estructura_respuesta(): void
     {
-        $programa = Programa::factory()->create(['estado' => 'publicado', 'slug' => 'cache-slug']);
+        $programa = Programa::factory()->create(['estado' => EstadoPrograma::PUBLICADO, 'slug' => 'cache-slug']);
         $response1 = $this->getJson('/api/publico/programas/cache-slug');
         $response2 = $this->getJson('/api/publico/programas/cache-slug');
         $response1->assertOk();
