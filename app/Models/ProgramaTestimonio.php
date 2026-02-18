@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -9,10 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ProgramaTestimonio extends Model
 {
     use HasFactory;
-{
     protected $table = 'programa_testimonios';
     protected $fillable = [
-        'programa_id', 'nombre_usuario', 'relato', 'imagen', 'destacado'
+        'programa_id',
+        'nombre_usuario',
+        'relato',
+        'imagen',
+        'destacado'
     ];
     protected $casts = [
         'destacado' => 'boolean',
@@ -23,9 +27,9 @@ class ProgramaTestimonio extends Model
         return $this->belongsTo(Programa::class);
     }
 
-        // Manejo de imagen de testimonio
-        public function getUrlImagenAttribute()
-        {
-            return $this->imagen ? Storage::url($this->imagen) : null;
-        }
+    // Manejo de imagen de testimonio
+    public function getUrlImagenAttribute()
+    {
+        return $this->imagen ? Storage::url($this->imagen) : null;
+    }
 }

@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class OfertaPrograma extends Model
 {
     use HasFactory;
-{
     protected $table = 'oferta_programa';
 
     protected $fillable = [

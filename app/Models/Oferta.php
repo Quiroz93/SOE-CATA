@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Oferta extends Model
 {
 	use HasFactory;
-{
 	protected $table = 'ofertas';
 
 	protected $fillable = [

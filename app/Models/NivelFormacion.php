@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class NivelFormacion extends Model
 {
     use HasFactory;
-{
     protected $table = 'niveles_formacion';
     protected $fillable = ['nombre', 'descripcion'];
     protected $casts = [

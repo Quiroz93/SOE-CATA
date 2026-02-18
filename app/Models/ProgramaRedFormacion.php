@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProgramaRedFormacion extends Model
 {
-    use HasFactory;
-{
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $table = 'programa_red_formacion';
 
