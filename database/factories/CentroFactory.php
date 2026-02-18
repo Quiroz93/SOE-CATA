@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Centro>
  */
 class CentroFactory extends Factory
+{
     /**
      * Estado activo
      */
@@ -15,7 +16,7 @@ class CentroFactory extends Factory
     {
         return $this->state(fn () => ['estado' => 'activo']);
     }
-{
+
     /**
      * Define the model's default state.
      *
