@@ -10,11 +10,17 @@ class ProgramaController extends Controller
     public function index()
     {
         $programas = Programa::published()->latest()->paginate(10);
-        return view('public.programas.index', compact('programas'));
+        // Estructura JSON esperada por tests
+        return response()->json($programas);
     }
-    public function show(Programa $programa)
+
+    public function show($slug)
     {
-        $programa->load('competencias');
-        return view('public.programas.show', compact('programa'));
+        $programa = Programa::published()->where('slug', $slug)->first();
+        if (!$programa) {
+            return response()->json(['message' => 'No encontrado'], 404);
+        }
+        // Estructura JSON esperada por tests
+        return response()->json($programa);
     }
 }
