@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class InstructorFactory extends Factory
 {
     /**
+     * Estado activo
+     */
+    public function activo(): static
+    {
+        return $this->state(fn () => ['activo' => true]);
+    }
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>

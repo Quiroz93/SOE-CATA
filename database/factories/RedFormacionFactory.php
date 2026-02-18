@@ -10,6 +10,22 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class RedFormacionFactory extends Factory
 {
     /**
+     * Estado activo
+     */
+    public function activo(): static
+    {
+        return $this->state(fn () => ['estado' => 'activo']);
+    }
+
+    /**
+     * Estado inactivo
+     */
+    public function inactivo(): static
+    {
+        return $this->state(fn () => ['estado' => 'inactivo']);
+    }
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>

@@ -10,6 +10,22 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class OfertaFactory extends Factory
 {
     /**
+     * Estado abierta
+     */
+    public function abierta(): static
+    {
+        return $this->state(fn () => ['estado' => 'abierta']);
+    }
+
+    /**
+     * Estado cerrada
+     */
+    public function cerrada(): static
+    {
+        return $this->state(fn () => ['estado' => 'cerrada']);
+    }
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>

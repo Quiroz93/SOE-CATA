@@ -10,6 +10,30 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ProgramaFactory extends Factory
 {
     /**
+     * Estado publicado
+     */
+    public function publicado(): static
+    {
+        return $this->state(fn () => ['estado' => 'publicado']);
+    }
+
+    /**
+     * Estado borrador
+     */
+    public function borrador(): static
+    {
+        return $this->state(fn () => ['estado' => 'borrador']);
+    }
+
+    /**
+     * Estado inactivo
+     */
+    public function inactivo(): static
+    {
+        return $this->state(fn () => ['estado' => 'inactivo']);
+    }
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
