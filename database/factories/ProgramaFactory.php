@@ -17,7 +17,10 @@ class ProgramaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique()->sentence(2),
+            'codigo' => $this->faker->unique()->bothify('PRG###'),
+            'descripcion' => $this->faker->paragraph(),
+            'estado' => $this->faker->randomElement(['borrador', 'publicado', 'inactivo']),
         ];
     }
 }

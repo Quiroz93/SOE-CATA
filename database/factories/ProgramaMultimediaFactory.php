@@ -17,7 +17,11 @@ class ProgramaMultimediaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'programa_id' => \App\Models\Programa::factory(),
+            'tipo' => $this->faker->randomElement(['video', 'imagen', 'documento']),
+            'url_externa' => $this->faker->url(),
+            'ruta_archivo' => $this->faker->optional()->lexify('media/??????.jpg'),
+            'orden' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

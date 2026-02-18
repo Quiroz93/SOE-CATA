@@ -17,7 +17,9 @@ class CompetenciaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique()->word(),
+            'codigo' => $this->faker->unique()->bothify('COMP###'),
+            'descripcion' => $this->faker->sentence(8),
         ];
     }
 }

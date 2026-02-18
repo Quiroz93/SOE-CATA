@@ -17,7 +17,11 @@ class ProgramaTestimonioFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'programa_id' => \App\Models\Programa::factory(),
+            'nombre_usuario' => $this->faker->name(),
+            'relato' => $this->faker->paragraph(),
+            'imagen' => $this->faker->optional()->lexify('testimonios/??????.jpg'),
+            'destacado' => $this->faker->boolean(),
         ];
     }
 }

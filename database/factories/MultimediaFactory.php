@@ -17,7 +17,9 @@ class MultimediaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tipo' => $this->faker->randomElement(['video', 'imagen', 'documento']),
+            'url' => $this->faker->url(),
+            'descripcion' => $this->faker->sentence(8),
         ];
     }
 }

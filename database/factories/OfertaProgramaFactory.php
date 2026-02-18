@@ -17,7 +17,12 @@ class OfertaProgramaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'oferta_id' => \App\Models\Oferta::factory(),
+            'programa_id' => \App\Models\Programa::factory(),
+            'cupos' => $this->faker->numberBetween(10, 100),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo']),
+            'fecha_inicio' => $this->faker->date(),
+            'fecha_fin' => $this->faker->date(),
         ];
     }
 }

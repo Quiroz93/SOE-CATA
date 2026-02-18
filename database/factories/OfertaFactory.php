@@ -17,7 +17,12 @@ class OfertaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'centro_id' => \App\Models\Centro::factory(),
+            'nombre' => $this->faker->sentence(3),
+            'descripcion' => $this->faker->paragraph(),
+            'estado' => $this->faker->randomElement(['abierta', 'cerrada']),
+            'fecha_inicio' => $this->faker->date(),
+            'fecha_fin' => $this->faker->date(),
         ];
     }
 }

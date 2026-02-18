@@ -17,7 +17,9 @@ class CentroFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->company(),
+            'codigo' => $this->faker->unique()->bothify('CEN###'),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo']),
         ];
     }
 }

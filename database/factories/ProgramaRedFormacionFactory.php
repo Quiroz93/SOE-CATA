@@ -17,7 +17,14 @@ class ProgramaRedFormacionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'programa_id' => \App\Models\Programa::factory(),
+            'red_formacion_id' => \App\Models\RedFormacion::factory(),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo']),
+            'fecha_asignacion' => $this->faker->date(),
+            'fecha_desasignacion' => $this->faker->optional()->date(),
+            'usuario_asigno_id' => \App\Models\User::factory(),
+            'usuario_modifico_id' => \App\Models\User::factory(),
+            'observaciones' => $this->faker->optional()->sentence(8),
         ];
     }
 }

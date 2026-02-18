@@ -17,7 +17,8 @@ class EnlaceExternoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'url' => $this->faker->url(),
+            'descripcion' => $this->faker->sentence(8),
         ];
     }
 }

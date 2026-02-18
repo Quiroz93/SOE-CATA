@@ -17,7 +17,9 @@ class RedFormacionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->unique()->word(),
+            'descripcion' => $this->faker->sentence(8),
+            'estado' => $this->faker->randomElement(['activo', 'inactivo']),
         ];
     }
 }
