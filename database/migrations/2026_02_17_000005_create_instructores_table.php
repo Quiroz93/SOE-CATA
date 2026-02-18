@@ -1,6 +1,4 @@
 <?php
-// Tabla: instructores
-// Propósito: Almacena los instructores del sistema, vinculados opcionalmente a un centro.
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,9 +10,9 @@ return new class extends Migration {
         Schema::create('instructores', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('email')->unique();
-            $table->string('telefono')->nullable();
-            $table->foreignId('centro_id')->nullable()->constrained('centros')->nullOnDelete();
+            $table->text('perfil_descriptivo');
+            $table->text('experiencia')->nullable();
+            $table->boolean('activo')->default(true);
             $table->timestamps();
         });
     }

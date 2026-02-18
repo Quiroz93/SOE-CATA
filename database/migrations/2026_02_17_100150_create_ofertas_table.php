@@ -1,6 +1,4 @@
 <?php
-// Tabla: ofertas
-// Propósito: Almacena las ofertas educativas, vinculadas a centros y programas.
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,8 +9,7 @@ return new class extends Migration {
     {
         Schema::create('ofertas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('centro_id')->constrained('centros')->cascadeOnDelete();
-            $table->foreignId('programa_id')->constrained('programas')->cascadeOnDelete();
+            $table->foreignId('centro_id')->constrained('centros')->restrictOnDelete();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
             $table->date('fecha_inicio');
@@ -21,7 +18,6 @@ return new class extends Migration {
             $table->timestamps();
         });
     }
-
     public function down(): void
     {
         Schema::dropIfExists('ofertas');

@@ -14,10 +14,11 @@ class StoreProgramaRequest extends FormRequest
     public function rules()
     {
         return [
-            // TODO: Agregar reglas de validación reales según los campos de Programa
             'nombre' => 'required|string|max:255',
             'codigo' => 'required|string|max:50|unique:programas,codigo',
             // ...otros campos...
+            'redes_ids' => 'required|array',
+            'redes_ids.*' => 'exists:red_formacion,id',
         ];
     }
 }
