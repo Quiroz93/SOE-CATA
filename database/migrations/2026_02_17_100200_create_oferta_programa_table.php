@@ -10,15 +10,8 @@ return new class extends Migration {
         Schema::create('oferta_programa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('oferta_id')->constrained('ofertas')->cascadeOnDelete();
-            $table->foreignId('programa_id')->constrained('programas')->restrictOnDelete();
-            $table->integer('cupos');
-            $table->string('estado')->default('borrador');
-            $table->date('fecha_inicio')->nullable();
-            $table->date('fecha_fin')->nullable();
+            $table->foreignId('programa_id')->constrained('programas')->cascadeOnDelete();
             $table->timestamps();
-            $table->unique(['oferta_id', 'programa_id']);
-            $table->index('oferta_id');
-            $table->index('programa_id');
         });
     }
     public function down(): void

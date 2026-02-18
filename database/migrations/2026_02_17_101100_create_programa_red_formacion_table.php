@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('observaciones')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->unique(['programa_id', 'red_formacion_id', 'estado']);
+            $table->unique(['programa_id', 'red_formacion_id', 'estado'], 'prf_programa_red_estado_unique');
         });
     }
 
