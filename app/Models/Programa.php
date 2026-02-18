@@ -11,6 +11,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Programa extends Model
 {
+    /**
+     * Scope para filtrar programas publicados.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('estado', 'publicado');
+    }
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
