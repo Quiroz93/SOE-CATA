@@ -12,9 +12,13 @@
     "build": "npm run clean && npm run typecheck && vite build"
   },
   "dependencies": {
-    "vue": "^3.5.25"
+    "axios": "^1.13.5",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.25",
+    "vue-router": "^5.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vue/tsconfig": "^0.8.1",
