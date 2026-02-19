@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Programa;
+use App\Domain\Programa\Enums\EstadoPrograma;
 
 class ProgramaSeeder extends Seeder
 {
@@ -13,74 +14,74 @@ class ProgramaSeeder extends Seeder
             [
                 "nivel" => "OPERARIO",
                 "nombre" => "PROCESOS DE PANADERIA",
-                "codigo" => "3410523",
-                "estado" => "publicado"
+                "ficha" => "3410523",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TÉCNICO",
                 "nombre" => "DIBUJO ARQUITECTÓNICO – FIC",
-                "codigo" => "3410525",
-                "estado" => "publicado"
+                "ficha" => "3410525",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TÉCNICO",
                 "nombre" => "ATENCIÓN INTEGRAL A LA PRIMERA INFANCIA",
-                "codigo" => "3410527",
-                "estado" => "publicado"
+                "ficha" => "3410527",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TÉCNICO",
                 "nombre" => "COSMETOLOGÍA Y ESTÉTICA INTEGRAL",
-                "codigo" => "3410528",
-                "estado" => "publicado"
+                "ficha" => "3410528",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TÉCNICO",
                 "nombre" => "EJECUCIÓN DE PROGRAMAS DEPORTIVO",
-                "codigo" => "3410546",
-                "estado" => "publicado"
+                "ficha" => "3410546",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "ACTIVIDAD FÍSICA",
-                "codigo" => "3410548",
-                "estado" => "publicado"
+                "ficha" => "3410548",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "GESTIÓN ADMINISTRATIVA",
-                "codigo" => "3410568",
-                "estado" => "publicado"
+                "ficha" => "3410568",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "ANÁLISIS Y DESARROLLO DE SOFTWARE",
-                "codigo" => "3410551",
-                "estado" => "publicado"
+                "ficha" => "3410551",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "COORDINACIÓN EN SISTEMAS INTEGRADOS DE GESTIÓN",
-                "codigo" => "3410564",
-                "estado" => "publicado"
+                "ficha" => "3410564",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "GESTIÓN CONTABLE Y DE INFOMACION FINANCIERA",
-                "codigo" => "3410558",
-                "estado" => "publicado"
+                "ficha" => "3410558",
+                "estado" => EstadoPrograma::PUBLICADO
             ],
             [
                 "nivel" => "TECNÓLOGO",
                 "nombre" => "LEVATAMIENTOS TOPOGRÁFICOS Y GEORREFERENCIACIÓN –FIC",
-                "codigo" => "3410569",
-                "estado" => "publicado"
+                "ficha" => "3410569",
+                "estado" => EstadoPrograma::PUBLICADO
             ]
         ];
 
         foreach ($programas as $item) {
             Programa::updateOrCreate(
-                ['codigo' => $item['codigo']],
+                ['ficha' => $item['ficha']],
                 [
                     'nivel' => $item['nivel'],
                     'nombre' => $item['nombre'],

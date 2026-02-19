@@ -15,7 +15,7 @@ class StoreProgramaRequest extends FormRequest
     {
         return [
             'nombre' => 'required|string|max:255',
-            'codigo' => 'required|string|max:50|unique:programas,codigo',
+            'ficha' => 'required|string|max:50|unique:programas,ficha',
             // ...otros campos...
             'redes_ids' => 'required|array',
             'redes_ids.*' => 'exists:red_formacion,id',

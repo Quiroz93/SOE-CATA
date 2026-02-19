@@ -22,22 +22,18 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         $this->routes(function () {
-            // Carga rutas API con prefijo /api
+            // Carga rutas API admin
             Route::prefix('api')
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
+
+            // Carga rutas públicas versionadas
+            Route::middleware('api')
+                ->group(base_path('routes/api_v1_public.php'));
 
             // Carga rutas web
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
-
-        $this->mapApiPublicoRoutes();
-    }
-
-    protected function mapApiPublicoRoutes()
-    {
-        Route::middleware('api')
-            ->group(base_path('routes/api_publico.php'));
     }
 }

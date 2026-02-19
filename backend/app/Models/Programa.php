@@ -26,7 +26,7 @@ class Programa extends Model
 
     protected $fillable = [
         'nombre',
-        'codigo',
+        'ficha',
         'descripcion',
         'estado',
     ];

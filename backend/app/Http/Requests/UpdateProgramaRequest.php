@@ -15,7 +15,7 @@ class UpdateProgramaRequest extends FormRequest
     {
         return [
             'nombre' => 'required|string|max:255',
-            'codigo' => 'required|string|max:50|unique:programas,codigo,' . $this->route('programa'),
+            'ficha' => 'required|string|max:50|unique:programas,ficha,' . $this->route('programa'),
             // ...otros campos...
             'redes_ids' => 'required|array',
             'redes_ids.*' => 'exists:red_formacion,id',
