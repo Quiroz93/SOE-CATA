@@ -19,6 +19,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        parent::boot();
+
         $this->routes(function () {
             // Carga rutas API con prefijo /api
             Route::prefix('api')
@@ -29,5 +31,13 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        $this->mapApiPublicoRoutes();
+    }
+
+    protected function mapApiPublicoRoutes()
+    {
+        Route::middleware('api')
+            ->group(base_path('routes/api_publico.php'));
     }
 }

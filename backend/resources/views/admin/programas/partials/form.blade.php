@@ -21,6 +21,16 @@
             {{-- Opciones dinámicas --}}
         </select>
     </div>
+    {{-- Campo: Redes de Formación --}}
+    <div>
+        <label for="redes_ids" class="block text-sm font-medium">Redes de Formación</label>
+        <select name="redes_ids[]" id="redes_ids" class="form-select mt-1 block w-full" multiple required>
+            @foreach($redesFormacion as $red)
+                <option value="{{ $red->id }}" {{ (isset($programa) && $programa->redesFormacion->contains($red->id)) ? 'selected' : '' }}>{{ $red->nombre }}</option>
+            @endforeach
+        </select>
+        <small class="text-gray-500">Mantén presionada la tecla Ctrl (Windows) o Cmd (Mac) para seleccionar varias opciones.</small>
+    </div>
     {{-- Botón de envío --}}
     <div>
         <button type="submit" class="btn btn-primary">{{ $mode === 'edit' ? 'Actualizar' : 'Crear' }}</button>
