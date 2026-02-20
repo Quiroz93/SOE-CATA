@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { programasService } from '../services/programas.service';
+import { programasService } from '@/features/programas/services/programas.service';
 import type { Programa } from '../types/programa.types';
 import type { ApiMeta } from '../../../types/api.types';
 
