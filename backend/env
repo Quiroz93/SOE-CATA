@@ -2,7 +2,7 @@ APP_NAME=SOE-CATA
 APP_ENV=local
 APP_KEY=base64:murjuSCTPBkkqdgmGAW9nBkD1NRp3rkbGzIeaEajxwc=
 APP_DEBUG=true
-APP_URL=http://localhost:8000
+APP_URL=http://192.168.1.6:8000
 
 SYSTEM_OWNER_EMAIL=jose.quirozquiroz93@gmail.com
 SYSTEM_INITIALIZED=false

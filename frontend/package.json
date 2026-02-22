@@ -12,6 +12,7 @@
     "build": "npm run clean && npm run typecheck && vite build"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.2.0",
     "axios": "^1.13.5",
     "pinia": "^3.0.4",
     "vue": "^3.5.25",
