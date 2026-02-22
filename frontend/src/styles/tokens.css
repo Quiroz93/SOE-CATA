@@ -1,0 +1,10 @@
+:root {
+  --sena-primary: #39A900;
+  --sena-primary-dark: #2F8F00;
+  --sena-primary-light: #6FD000;
+  --sena-gray-dark: #4A4A4A;
+  --sena-gray-light: #F4F4F4;
+  --sena-background: #FFFFFF;
+  --sena-foreground: #000000;
+  --radius-base: 0.75rem;
+}

@@ -8,7 +8,7 @@
     <div class="text-xs text-gray-600 mb-1">🏙️ Municipio: <span class="font-semibold">{{ programa.municipio }}</span></div>
     <div class="text-xs text-gray-600 mb-1">🎓 Nivel: <span class="font-semibold">{{ programa.nivel }}</span></div>
     <div class="text-xs text-green-700 mb-2">👥 Cupos disponibles: <span class="font-semibold">{{ programa.cupos_disponibles }}</span></div>
-    <router-link :to="`/programas/${programa.slug}`" class="mt-auto inline-block bg-[#00843D] text-white px-4 py-2 rounded font-semibold hover:bg-[#006b31] transition">Ver detalle</router-link>
+    <router-link :to="`/programas/${programa.id}`" class="mt-auto inline-block bg-[#00843D] text-white px-4 py-2 rounded font-semibold hover:bg-[#006b31] transition">Ver detalle</router-link>
   </div>
 </template>
 
