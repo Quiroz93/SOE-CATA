@@ -1,0 +1,6 @@
+/* Solo estilos responsivos */
+@media (max-width: 900px) {
+  #why .container {
+    flex-direction: column;
+  }
+}

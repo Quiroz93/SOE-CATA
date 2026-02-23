@@ -1,0 +1,6 @@
+/* Solo estilos responsivos */
+@media (max-width: 900px) {
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+}

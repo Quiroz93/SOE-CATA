@@ -1,0 +1,7 @@
+/* Solo estilos responsivos */
+@media (max-width: 900px) {
+  #blog .labels {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
