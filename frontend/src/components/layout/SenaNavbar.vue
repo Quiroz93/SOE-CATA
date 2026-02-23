@@ -41,13 +41,22 @@ watch(
       </div>
 
       <!-- Mobile toggle -->
+
+      <!-- Toggle siempre visible en móviles, cambia icono según estado -->
       <button
-        class="menu-toggle"
+        class="menu-toggle toggle-animated"
         @click="isOpen = !isOpen"
         :aria-expanded="isOpen"
-        aria-label="Abrir menú"
+        :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"
       >
-        ☰
+        <span
+          class="toggle-icon"
+          :class="{ 'toggle-hide': isOpen, 'toggle-show': !isOpen }"
+        >☰</span>
+        <span
+          class="toggle-icon"
+          :class="{ 'toggle-hide': !isOpen, 'toggle-show': isOpen }"
+        >✕</span>
       </button>
 
     </div>
