@@ -1,1 +1,0 @@
-import{_ as s,a as n,c as o,b as t}from"./index-Bs8m1mXB.js";const c={},a={class:"flex flex-col items-center justify-center min-h-screen"};function r(l,e){return n(),o("div",a,[...e[0]||(e[0]=[t("h1",{class:"text-4xl font-bold mb-4"},"404",-1),t("p",{class:"text-lg"},"Página no encontrada",-1)])])}const d=s(c,[["render",r]]);export{d as default};
