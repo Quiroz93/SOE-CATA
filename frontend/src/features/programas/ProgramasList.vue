@@ -9,12 +9,15 @@
     <!-- Lista de programas -->
     <ul v-else>
       <!-- Aquí irá la lista -->
+      <li v-for="programa in programas" :key="programa.id" class="mb-2">
+        {{ programa.nombre }}
+      </li>
     </ul>
   </div>
 </template>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { getProgramas } from '../../services/programas.service';
+import { programasService } from './services/programas.service';
 
 const loading = ref(true);
 const error = ref(false);
@@ -23,9 +26,9 @@ const programas = ref<any[]>([]);
 
 onMounted(async () => {
   try {
-    const result = await getProgramas();
-    programas.value = result;
-    empty.value = !result.length;
+    const { data } = await programasService.listar();
+    programas.value = data;
+    empty.value = !data.length;
   } catch (e) {
     error.value = true;
   } finally {

@@ -40,8 +40,8 @@ El uso correcto de la identidad garantiza coherencia, reconocimiento y cumplimie
 
 ### 🎯 Colores Secundarios
 
-| Color              | HEX     | Uso                 |
-| ------------------ | ------- | ------------------- |
+| Color              | HEX       | Uso                 |
+| ------------------ | --------- | ------------------- |
 | Verde oscuro       | #007832 | Hover, headers      |
 | Azul institucional | #00304D | Sidebar, contrastes |
 | Blanco             | #FFFFFF | Fondos              |

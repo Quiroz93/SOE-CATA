@@ -1,51 +1,21 @@
+import { createRouter, createWebHistory } from 'vue-router'
 
-import { createRouter, createWebHistory } from 'vue-router';
-import type { RouteRecordRaw } from 'vue-router';
-
-const MainLayout = () => import('../layouts/MainLayout.vue');
-const ProgramasView = () => import('../features/programas/views/ProgramasView.vue');
-const ProgramaDetalleView = () => import('../features/programas/views/ProgramaDetalleView.vue');
-// Placeholder for future institutional views
-const PreinscripcionView = () => import('../features/preinscripcion/views/PreinscripcionView.vue');
-const NotFound = () => import('../features/NotFound.vue');
-
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
-    component: MainLayout,
-    children: [
-      {
-        path: '',
-        redirect: '/programas',
-      },
-      {
-        path: 'programas',
-        name: 'ProgramasView',
-        component: ProgramasView,
-      },
-      {
-        path: 'programas/:slug',
-        name: 'ProgramaDetalleView',
-        component: ProgramaDetalleView,
-      },
-      {
-        path: 'preinscripcion/:programaId',
-        name: 'PreinscripcionView',
-        component: PreinscripcionView,
-        props: true,
-      },
-    ],
+    name: 'welcome',
+    component: () => import('@/features/welcome.vue') // lazy load
   },
   {
-    path: '/:catchAll(.*)',
-    name: 'NotFound',
-    component: NotFound,
-  },
-];
+    path: '/programas',
+    name: 'programas',
+    component: () => import('@/features/programas/views/ProgramasView.vue') // lazy load
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
