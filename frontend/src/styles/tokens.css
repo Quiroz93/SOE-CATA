@@ -1,10 +1,57 @@
+/* ================================================================
+   TOKENS DE DISEÑO - MANUAL DE IDENTIDAD VISUAL SENA 2024
+   ================================================================ */
+
 :root {
-  --sena-primary: #39A900;
-  --sena-primary-dark: #2F8F00;
-  --sena-primary-light: #6FD000;
-  --sena-gray-dark: #4A4A4A;
-  --sena-gray-light: #F4F4F4;
-  --sena-background: #FFFFFF;
-  --sena-foreground: #000000;
-  --radius-base: 0.75rem;
+    /* COLORES PRINCIPALES SENA */
+    --sena-verde-principal: #39A900;
+    --sena-verde-oscuro: #007832;
+    
+    /* COLORES SECUNDARIOS AUTORIZADOS */
+    --sena-azul-oscuro: #00304D;
+    --sena-azul-claro: #50E5F9;
+    --sena-violeta: #71277A;
+    --sena-amarillo: #FDC300;
+    
+    /* COLORES NEUTROS */
+    --sena-blanco: #FFFFFF;
+    --sena-gris-claro: #F6F6F6;
+    --sena-gris-medio: #E0E0E0;
+    --sena-gris-texto: #4A4A4A;
+    --sena-negro: #000000;
+    
+    /* VARIACIONES DE VERDE PARA HOVER/ESTADOS */
+    --sena-verde-hover: #2d8000;
+    --sena-verde-light: rgba(57, 169, 0, 0.1);
+    
+    /* APLICACIÓN DE COLORES A ELEMENTOS */
+    --color-primario: var(--sena-verde-principal);
+    --color-primario-hover: var(--sena-verde-hover);
+    --color-texto-principal: var(--sena-gris-texto);
+    --color-texto-claro: var(--sena-blanco);
+    --color-fondo: var(--sena-blanco);
+    --color-fondo-alternativo: var(--sena-gris-claro);
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    
+    /* TIPOGRAFÍA */
+    --fuente-principal: "Work Sans", sans-serif;
+    
+    /* ESPACIADO */
+    --espaciado-xs: 8px;
+    --espaciado-sm: 16px;
+    --espaciado-md: 24px;
+    --espaciado-lg: 32px;
+    --espaciado-xl: 48px;
+    --espaciado-2xl: 60px;
+    --espaciado-3xl: 80px;
+    
+    /* BORDES */
+    --radio-sm: 4px;
+    --radio-md: 8px;
+    --radio-lg: 16px;
+    --radio-xl: 30px;
+    
+    /* TRANSICIONES */
+    --transicion-rapida: 200ms ease;
+    --transicion-normal: 300ms ease;
 }

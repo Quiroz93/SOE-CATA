@@ -16,25 +16,26 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
-        redirect: '/programas',
-      },
-      {
-        path: 'programas',
-        name: 'ProgramasView',
-        component: ProgramasView,
-      },
-      {
-        path: 'programas/:slug',
-        name: 'ProgramaDetalleView',
-        component: ProgramaDetalleView,
-      },
-      {
-        path: 'preinscripcion/:programaId',
-        name: 'PreinscripcionView',
-        component: PreinscripcionView,
-        props: true,
+        name: 'WelcomeView',
+        component: () => import('../views/WelcomeView.vue'),
       },
     ],
+  },
+  {
+    path: '/programas',
+    name: 'ProgramasView',
+    component: ProgramasView,
+  },
+  {
+    path: '/programas/:slug',
+    name: 'ProgramaDetalleView',
+    component: ProgramaDetalleView,
+  },
+  {
+    path: '/preinscripcion/:programaId',
+    name: 'PreinscripcionView',
+    component: PreinscripcionView,
+    props: true,
   },
   {
     path: '/:catchAll(.*)',
