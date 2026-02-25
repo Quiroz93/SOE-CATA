@@ -1,20 +1,13 @@
-/* Solo estilos responsivos */
-@media (max-width: 900px) {
-  .featured .logos {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
+/* =========================
+   RESPONSIVE AJUSTE FINO
+========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .featured {
-    padding-bottom: 1.5rem;
-    margin-top: 25rem !important;
+    padding-top: 3rem;
   }
-  .featured-card {
-    border-radius: 20px;
-    padding: 1.5rem;
-    transform: none;
-    margin-top: 1rem;
+
+  .featured .logos img {
+    max-width: 90px;
   }
 }

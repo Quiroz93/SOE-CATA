@@ -45,6 +45,7 @@ nav {
   backdrop-filter: blur(12px);
   z-index: 1000;
   border-bottom: #39A900 2px solid;
+  
 }
 
 /* Evita que el contenido quede debajo */
@@ -163,27 +164,23 @@ body {
 /* Menú móvil debajo de la navbar */
 .mobile-menu {
   position: fixed;
-  top: 64px; /* debajo de la navbar */
-  right: -100%;
-  width: 280px;
-  height: calc(100vh - 64px);
-
+  left: 0;
+  top: -100vh;
+  width: 100vw;
+  height: 320px;
   background: var(--sena-azul-oscuro);
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
-
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
   padding: 2rem;
   z-index: 1100;
-
-  transition: right 0.3s ease;
+  transition: top 0.3s ease;
 }
 
 /* Estado activo */
 .mobile-menu.active {
-  right: 0;
+  top: 64px;
 }
 
 /* ===============================
@@ -196,7 +193,21 @@ body {
   }
 
   .menu-toggle {
-    display: block;
+    display: inline-block;
+    margin: 0 1rem 2rem 0;
+  }
+
+  .mobile-menu a {
+    color: #39A900;
+  }
+
+  .menu-items a {
+    display: none;
+  }
+
+  .menu-toggle.active .toggle-icon:first-child {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
   }
 }
 

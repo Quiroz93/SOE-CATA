@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
+}
+
+
 /* ================================================================
    ESTILOS BASE
    ================================================================ */
@@ -38,6 +46,7 @@ a:hover {
     cursor: pointer;
     transition: all var(--transicion-normal);
     font-family: var(--fuente-principal);
+    margin: 1rem 1rem 0.5rem 0;
 }
 
 .btn:hover {
@@ -48,13 +57,15 @@ a:hover {
     box-shadow: 0 4px 12px var(--sena-verde-light);
 }
 
-.btn.outline, .btn.outlined {
+.btn.outline,
+.btn.outlined {
     background: transparent;
     color: var(--color-primario);
     border-color: var(--color-primario);
 }
 
-.btn.outline:hover, .btn.outlined:hover {
+.btn.outline:hover,
+.btn.outlined:hover {
     background: var(--color-primario);
     color: var(--color-texto-claro);
 }
@@ -197,40 +208,37 @@ nav .menu-items .btn:hover {
    SECCIÓN HERO - INSTITUCIONAL
    ================================================================ */
 header {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    padding-top: 70px;
-    min-height: 600px;
-    max-height: 800px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2rem, 6vw, 6rem) 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.buttons {
-    display: flex;
-    gap: var(--espaciado-md);
-    margin-top: var(--espaciado-lg);
+.left {
+  flex: 1;
+  max-width: 600px;
 }
 
-header .left {
-    max-width: 50%;
-    z-index: 2;
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
 }
 
-header .right {
-    position: relative;
-    bottom: 0;
-    right: 0;
-}
-
-header .right img {
-    height: 600px;
-    object-fit: cover;
-    border-radius: var(--radio-lg);
+.right img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
 header .bg-color {
     position: absolute;
+    margin-top: -120px;
     width: 450px;
     height: 450px;
     background: linear-gradient(135deg, var(--sena-azul-oscuro) 0%, var(--sena-verde-principal) 100%);
@@ -245,39 +253,41 @@ header .bg-color {
 /* ================================================================
    SECCIÓN FEATURED - LOGOS PARTNER
    ================================================================ */
+/* =========================
+   FEATURED SECTION
+========================= */
+
 .featured {
-    z-index: 2;
-    position: relative;
-    margin-top: -40px;
-}
-
-.featured img {
-    width: auto;
-    height: 25px;
-    opacity: 0.6;
-    transition: opacity var(--transicion-normal);
-}
-
-.featured img:hover {
-    opacity: 1;
-}
-
-.featured .logos {
-    display: flex;
-    gap: var(--espaciado-2xl);
-    flex-wrap: wrap;
-    justify-content: center;
+  position: relative;
+  margin-top: clamp(-80px, -6vw, -40px);
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
 }
 
 .featured .container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espaciado-xs);
-    align-items: center;
-    padding: var(--espaciado-xl) var(--espaciado-lg);
-    box-shadow: 0 4px 24px var(--color-sombra);
-    border-radius: var(--radio-xl);
-    background: var(--color-fondo);
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.featured h2 {
+  font-size: clamp(20px, 3vw, 28px);
+  margin-bottom: 2rem;
+}
+
+/* Logos */
+.featured .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.featured .logos img {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* ================================================================
@@ -340,6 +350,7 @@ section .icon img {
 section .btn {
     margin-top: var(--espaciado-lg);
 }
+
 /* ================================================================
    SECCIÓN SERVICES/PROGRAMAS
    ================================================================ */
@@ -381,6 +392,23 @@ section .heading-container {
     padding: var(--espaciado-md);
 }
 
+@media (max-width: 768px) {
+   .services-container .content{
+     display: inline;
+     flex-direction: column;
+     gap: var(--espaciado-sm);
+   }
+}
+
+@media (max-width: 400px) {
+    .services-container[data-v-78027922] {
+        display: flex;
+        flex-direction: column;
+        gap: var(--espaciado-lg);
+        margin-top: 25px;
+    }
+}
+
 .services-container .content h3 {
     color: var(--sena-azul-oscuro);
     margin-bottom: var(--espaciado-xs);
@@ -395,6 +423,7 @@ section .heading-container {
 }
 
 #why .container {
+    box-sizing: border-box;
     display: flex;
     gap: var(--espaciado-3xl);
     align-items: center;
@@ -429,7 +458,7 @@ section .heading-container {
 }
 
 #why .right {
-    flex: 1;
+    display: block;
 }
 
 #why .feature {
@@ -518,7 +547,7 @@ form .group {
     gap: var(--espaciado-sm);
 }
 
-form input, 
+form input,
 form textarea {
     width: 100%;
     padding: var(--espaciado-sm) var(--espaciado-md);
@@ -531,7 +560,7 @@ form textarea {
     transition: border-color var(--transicion-normal);
 }
 
-form input:focus, 
+form input:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--color-primario);
@@ -640,80 +669,12 @@ footer .copyright {
 
 /* Seguridad global */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-html, body {
-  overflow-x: hidden;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  /* TITULOS */
-  h1 {
-    font-size: 32px;
-    line-height: 1.2;
-  }
-  
-  h2 {
-    font-size: 24px;
-  }
-
-  /* HERO */
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  header .left {
     max-width: 100%;
-  }
-
-  header .right {
-    order: -1;
-    width: 100%;
-  }
-
-  header .right img {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  /* SECCIONES FLEX */
-  #about .container,
-  #why .container {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  /* GRID */
-  .services-container,
-  .features-container {
-    grid-template-columns: 1fr;
-  }
-
-  /* NAVBAR */
-  nav .menu-items {
-    display: none; /* importante */
-  }
-
-  .menu-toggle {
+    height: auto;
     display: block;
-  }
+}
 
-  /* FOOTER */
-  footer .top {
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
-  }
-
-  footer .social {
-    justify-content: flex-start;
-  }
+html,
+body {
+    overflow-x: hidden;
 }

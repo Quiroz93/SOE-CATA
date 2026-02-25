@@ -1,26 +1,30 @@
-/* Solo estilos responsivos */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px) {
   header {
     flex-direction: column;
     text-align: center;
   }
-  header .left {
+
+  .left,
+  .right {
     max-width: 100%;
   }
-  h1 {
-    font-size: 36px;
+
+  .right {
+    justify-content: center;
   }
 
-  .header .btn {
-    margin: 1rem auto;
-
+  .buttons {
+    flex-direction: column;
+    align-items: center;
   }
-}
 
-@media (max-width: 768px) {
-  .btn {
+  header .btn {
     width: 100%;
-    margin-left: -9px;
-    margin-right: -9px;
+    max-width: 320px;
+    margin: 1rem 1rem 0.5rem 0;
   }
 }

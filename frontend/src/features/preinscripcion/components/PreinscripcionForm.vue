@@ -4,6 +4,7 @@ import { usePreinscripcionStore } from '../stores/preinscripcion.store';
 
 const props = defineProps<{
   programaId: number;
+  programaNombre: string;
 }>();
 
 const store = usePreinscripcionStore();
@@ -14,7 +15,8 @@ const form = reactive({
   apellidos: '',
   documento: '',
   correo: '',
-  telefono: ''
+  telefono: '',
+  programa: props.programaNombre || ''
 });
 
 const submit = async () => {
@@ -24,6 +26,12 @@ const submit = async () => {
 
 <template>
   <form @submit.prevent="submit">
+
+    <div v-if="form.programa_id">
+      <label>Programa:</label>
+      <h2>{{ form.programa || props.programaNombre }}</h2>
+    </div>
+
     <div>
       <input v-model="form.nombres" placeholder="Nombres" />
       <span v-if="store.errors.nombres">

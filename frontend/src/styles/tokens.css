@@ -31,7 +31,7 @@
     --color-texto-claro: var(--sena-blanco);
     --color-fondo: var(--sena-blanco);
     --color-fondo-alternativo: var(--sena-gris-claro);
-    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-sombra: rgba(0, 0, 0, 0.5);
     
     /* TIPOGRAFÍA */
     --fuente-principal: "Work Sans", sans-serif;

@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 
 const isOpen = ref(false);
 const route = useRoute();
+const appName = import.meta.env.VITE_APP_NAME || "SENA";
 
 const navLinks = [
   { label: "Ofertas", to: "/ofertas" },
@@ -25,11 +26,12 @@ watch(
 
       <div class="logo">
         <img src="/images/Logosimbolo-SENA.svg" alt="SENA Logo" />
-        <router-link to="/" class="logo-link">SOE | SENA</router-link>
+        <router-link to="/" class="logo-link">{{ appName }}</router-link>
       </div>
 
       <!-- Desktop -->
       <div class="menu-items">
+        
         <router-link
           v-for="link in navLinks"
           :key="link.label"
@@ -40,7 +42,7 @@ watch(
         </router-link>
       </div>
 
-      <!-- Mobile toggle -->
+            <!-- Mobile toggle -->
 
       <!-- Toggle siempre visible en móviles, cambia icono según estado -->
       <button
@@ -58,7 +60,6 @@ watch(
           :class="{ 'toggle-hide': !isOpen, 'toggle-show': isOpen }"
         >✕</span>
       </button>
-
     </div>
 
     <!-- Mobile Menu -->
