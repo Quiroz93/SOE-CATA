@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <h2>Sobre Nosotros</h2>
-        <p>En SOE SENA, estamos dedicados a proporcionar educación de calidad y oportunidades de aprendizaje para todos. Nuestra misión es empoderar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.</p>
+        <p>En <SPAN class="nombre-centro">SENA CATA</SPAN>, estamos dedicados a proporcionar educación de calidad y oportunidades de aprendizaje para todos. Nuestra misión es empoderar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.</p>
         <div class="features-container">
           <div class="feature" v-for="feature in features" :key="feature.title">
             <div class="icon">
@@ -16,7 +16,7 @@
         <a href="#" class="btn outlined">Leer Más</a>
       </div>
       <div class="right">
-        <img src="/images/image1.jpg" alt="About Illustration">
+        <img src="/images/Foto1.jpeg" alt="About Illustration">
       </div>
     </div>
   </section>

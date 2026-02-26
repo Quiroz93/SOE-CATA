@@ -1,3 +1,50 @@
+/* ================================================================
+   FEATURED - FOOTER CARDS PROGRAMAS (SENA)
+   ================================================================ */
+.featured .programa-card-footer {
+    border-top: 1px solid #E0F2E9;
+    background: #F9FFF9;
+    padding: 1rem 1rem 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.featured .programa-card-footer h6 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #007832;
+    margin-bottom: 0.5rem;
+    font-family: var(--fuente-principal);
+}
+
+.featured .footer-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.featured .footer-actions .btn {
+    min-width: 120px;
+    font-size: 15px;
+    padding: 0.5rem 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .featured .programa-card-footer {
+        padding: 0.7rem 0.3rem 1rem 0.3rem;
+    }
+    .featured .footer-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .featured .footer-actions .btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -96,7 +143,7 @@ h1 {
     font-weight: 700;
     letter-spacing: -0.5px;
     margin: var(--espaciado-sm) 0;
-    background: linear-gradient(90deg, var(--sena-azul-oscuro) 0%, var(--sena-verde-principal) 100%);
+    background: var(--titulo-color);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -110,7 +157,35 @@ h2 {
     font-weight: 700;
     letter-spacing: -0.5px;
     margin: var(--espaciado-xs) 0;
-    background: linear-gradient(90deg, var(--sena-azul-oscuro) 0%, var(--sena-verde-principal) 100%);
+    background: var(--titulo-color2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--fuente-principal);
+}
+
+.siglas-centro {
+    font-size: 28px;
+    line-height: 120%;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: var(--espaciado-xs) 0;
+    background: var(--titulo-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--fuente-principal);
+}
+
+.nombre-centro {
+    font-size: 32px;
+    line-height: 120%;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: var(--espaciado-xs) 0;
+    background: var(--sena-azul-oscuro);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -208,32 +283,41 @@ nav .menu-items .btn:hover {
    SECCIÓN HERO - INSTITUCIONAL
    ================================================================ */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: clamp(2rem, 6vw, 6rem) 1.5rem;
-  position: relative;
-  overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 2rem 0 2rem;
+    position: relative;
+    border-bottom: #39A900 1px solid;
+}
+
+h3 {
+    background: var(--sena-amarillo);
+    text-decoration: dashed;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--espaciado-sm);
 }
 
 .left {
-  flex: 1;
-  max-width: 600px;
+    flex: 1;
+    max-width: 600px;
 }
 
 .right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
 }
 
 .right img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+    max-width: 400px;
+    height: auto;
 }
 
 header .bg-color {
@@ -241,7 +325,7 @@ header .bg-color {
     margin-top: -120px;
     width: 450px;
     height: 450px;
-    background: linear-gradient(135deg, var(--sena-azul-oscuro) 0%, var(--sena-verde-principal) 100%);
+    background: var(--sena-azul-oscuro);
     top: 100px;
     right: -50px;
     z-index: -1;
@@ -251,43 +335,78 @@ header .bg-color {
 }
 
 /* ================================================================
-   SECCIÓN FEATURED - LOGOS PARTNER
+   FEATURED - CARDS PROGRAMAS (SENA)
    ================================================================ */
-/* =========================
-   FEATURED SECTION
-========================= */
-
-.featured {
-  position: relative;
-  margin-top: clamp(-80px, -6vw, -40px);
-  padding: clamp(2rem, 5vw, 4rem) 1rem;
+.featured .programas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.featured .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+.featured .programa-card {
+    background: #FFFFFF;
+    border: 1.5px solid #39A900;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(57,169,0,0.08);
+    max-width: 380px;
+    min-width: 280px;
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
 }
 
-.featured h2 {
-  font-size: clamp(20px, 3vw, 28px);
-  margin-bottom: 2rem;
+.featured .programa-card:hover {
+    box-shadow: 0 8px 24px rgba(57,169,0,0.16);
+    border-color: #007832;
 }
 
-/* Logos */
-.featured .logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(1rem, 3vw, 2rem);
-  flex-wrap: wrap;
+.featured .programa-card-header {
+    background: #F6FFF6;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border-bottom: 1px solid #E0F2E9;
 }
 
-.featured .logos img {
-  max-width: 120px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+.featured .categoria {
+    color: #007832;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-family: var(--fuente-principal);
+}
+
+.featured .titulo-programa {
+    color: #00304D;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 1rem;
+    font-family: var(--fuente-principal);
+}
+
+.featured .programa-card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.featured .programa-card-body img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.featured .programa-card-body p {
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    font-family: var(--fuente-principal);
 }
 
 /* ================================================================
@@ -393,11 +512,11 @@ section .heading-container {
 }
 
 @media (max-width: 768px) {
-   .services-container .content{
-     display: inline;
-     flex-direction: column;
-     gap: var(--espaciado-sm);
-   }
+    .services-container .content {
+        display: inline;
+        flex-direction: column;
+        gap: var(--espaciado-sm);
+    }
 }
 
 @media (max-width: 400px) {

@@ -54,4 +54,8 @@
     /* TRANSICIONES */
     --transicion-rapida: 200ms ease;
     --transicion-normal: 300ms ease;
+
+    --titulo-color: linear-gradient(90deg, var(--sena-azul-oscuro) 0%, var(--sena-verde-principal) 100%);
+    --titulo-color2: linear-gradient(90deg, var(--sena-violeta) 0%, var(--sena-amarillo) 100%);
+
 }
