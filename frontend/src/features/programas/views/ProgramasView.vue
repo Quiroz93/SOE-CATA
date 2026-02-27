@@ -25,7 +25,7 @@ onMounted(() => {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <ProgramaCard v-for="programa in store.programas" :key="programa.id" :programa="programa" />
       </div>
-      <div v-if="store.meta.total" class="mt-4">Total: {{ store.meta.total }}</div>
+      <div v-if="store.meta.total" class="mt-4" style="margin-top: 1rem;">Total programas ofertados: {{ store.meta.total }}</div>
     </div>
   </div>
 </template>
