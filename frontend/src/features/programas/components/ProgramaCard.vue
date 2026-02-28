@@ -6,28 +6,16 @@
       {{ programa.nombre }}
     </h2>
 
-    <!-- Descripción -->
+    <!-- Descripción --> 
     <p :class="$style.descripcion">
       {{ programa.descripcion }}
     </p>
 
-    <!-- Información del programa -->
-    <div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span>📍</span>
-        <span style="color: #00304D;">Municipio:</span>
-        <span style="font-weight: 500;">{{ programa.municipio }}</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span>🎓</span>
-        <span style="color: #00304D;">Nivel:</span>
-        <span style="font-weight: 500;">{{ programa.nivel }}</span>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span>👥</span>
-        <span style="color: #00304D;">Cupos disponibles:</span>
-        <span :class="$style.estado">{{ programa.cupos_disponibles }}</span>
-      </div>
+    <!-- Nivel -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span>🎓</span>
+      <span style="color: #00304D;">Nivel:</span>
+      <span style="font-weight: 500;">{{ programa.nivel }}</span>
     </div>
 
     <!-- Botón -->

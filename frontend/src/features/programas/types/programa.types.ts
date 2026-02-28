@@ -3,7 +3,6 @@ export interface Programa {
   nombre: string;
   slug: string;
   descripcion: string;
-  municipio: string;
   nivel: string;
-  cupos_disponibles: number;
+  estado: string;
 }

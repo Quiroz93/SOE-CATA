@@ -6,7 +6,7 @@
     <div v-if="store.error" class="text-red-500" role="alert">{{ store.error }}</div>
     <div v-if="store.programas.length === 0 && !store.loading" class="text-gray-500" role="status">No hay programas disponibles.</div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <ProgramaCard v-for="programa in store.programas" :key="programa.id" :programa="programa" />
+      <ProgramaCard v-for="programa in store.programas.filter(p => p.estado === 'publicado')" :key="programa.id" :programa="programa" />
     </div>
   </div>
 </template>
