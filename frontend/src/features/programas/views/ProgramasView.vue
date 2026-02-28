@@ -1,24 +1,14 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useProgramasStore } from '../stores/programas.store';
+import { ref } from 'vue';
 import FiltroProgramas from '../components/FiltroProgramas.vue';
+import ProgramasList from './ProgramasList.vue';
 import $style from './ProgramasView.module.css';
 
-const store = useProgramasStore();
+const filtrosSeleccionados = ref({});
 
 function onFiltrar(filtros: Record<string, any>) {
-  // Elimina filtros vacíos
-  const filtrosLimpiados = Object.fromEntries(
-    Object.entries(filtros).filter(([_, v]) => v && v !== '')
-  );
-  store.fetchProgramas(Object.keys(filtrosLimpiados).length ? filtrosLimpiados : undefined);
+  filtrosSeleccionados.value = filtros;
 }
-
-onMounted(() => {
-  store.fetchProgramas().then(() => {
-    console.log('store.programas:', store.programas);
-  });
-});
 </script>
 
 <template>
@@ -45,7 +35,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <ProgramasList />
+    <ProgramasList :filtros="filtrosSeleccionados" />
 
     <div :class="$style.acciones">
       <router-link to="/ofertas" :class="$style.botonPrincipal">Ver Ofertas</router-link>

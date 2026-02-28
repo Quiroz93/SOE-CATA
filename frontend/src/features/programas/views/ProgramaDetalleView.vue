@@ -19,9 +19,7 @@ onMounted(() => {
     <div v-else-if="store.programaActual">
       <h1 :class="$style.titulo">{{ store.programaActual.nombre }}</h1>
       <p :class="$style.descripcion">{{ store.programaActual.descripcion }}</p>
-      <p :class="$style.info">Municipio: <span>{{ store.programaActual.municipio }}</span></p>
       <p :class="$style.info">Nivel: <span>{{ store.programaActual.nivel }}</span></p>
-      <p :class="$style.cupos">Cupos disponibles: {{ store.programaActual.cupos_disponibles }}</p>
       <router-link :to="`/preinscripcion/${store.programaActual.id}`" :class="$style.botonPreinscripcion">Preinscribirse</router-link>
     </div>
 

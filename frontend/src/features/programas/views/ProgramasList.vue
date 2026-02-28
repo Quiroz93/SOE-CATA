@@ -12,13 +12,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { watch, onMounted } from 'vue';
 import { useProgramasStore } from '../stores/programas.store';
 import ProgramaCard from '../components/ProgramaCard.vue';
 
+const props = defineProps<{ filtros: Record<string, any> }>();
 const store = useProgramasStore();
 
-onMounted(() => {
-  store.fetchProgramas();
-});
+function cargarProgramas() {
+  store.fetchProgramas(props.filtros);
+}
+
+onMounted(cargarProgramas);
+watch(() => props.filtros, cargarProgramas, { deep: true });
 </script>
