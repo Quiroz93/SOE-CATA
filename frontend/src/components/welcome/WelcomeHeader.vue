@@ -9,8 +9,8 @@
       </div>
       <p class="sub-heading">Tu puerta al conocimiento y el aprendizaje.</p>
       <div class="buttons">
-        <a href="#" class="btn">Explorar Programas</a>
-        <a href="#" class="btn outlined">Ver Oferta</a>
+        <router-link to="/programas" class="btn">Explorar Programas</router-link>
+        <router-link to="/ofertas" class="btn outlined">Ver Oferta</router-link>
       </div>
     </div>
     <div class="right">

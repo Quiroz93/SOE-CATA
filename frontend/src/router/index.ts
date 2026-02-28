@@ -1,11 +1,11 @@
-
 import { createRouter, createWebHistory } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
 const MainLayout = () => import('../layouts/MainLayout.vue');
 const ProgramasView = () => import('../features/programas/views/ProgramasView.vue');
 const ProgramaDetalleView = () => import('../features/programas/views/ProgramaDetalleView.vue');
-// Placeholder for future institutional views
+const OfertasList = () => import('../modules/ofertas/views/OfertasList.vue');
+const OfertaDetalle = () => import('../modules/ofertas/views/OfertaDetalle.vue');
 const PreinscripcionView = () => import('../features/preinscripcion/views/PreinscripcionView.vue');
 const NotFound = () => import('../features/NotFound.vue');
 
@@ -33,6 +33,17 @@ const routes: Array<RouteRecordRaw> = [
         path: '/preinscripcion/:programaId',
         name: 'PreinscripcionView',
         component: PreinscripcionView,
+        props: true,
+      },
+      {
+        path: 'ofertas',
+        name: 'OfertasList',
+        component: OfertasList,
+      },
+      {
+        path: 'ofertas/:id',
+        name: 'OfertaDetalle',
+        component: OfertaDetalle,
         props: true,
       },
     ],

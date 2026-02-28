@@ -74,7 +74,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { d } from 'vue-router/dist/index-DFCq6eJK.js';
+
 
 // No props, solo contenido estático
 </script>

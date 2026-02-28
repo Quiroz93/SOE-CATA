@@ -2,15 +2,17 @@
 import { reactive } from 'vue';
 import { usePreinscripcionStore } from '../stores/preinscripcion.store';
 
+
 const props = defineProps<{
-  ofertaProgramaId: number;
-  programaNombre: string;
+  ofertaProgramaId?: number;
+  programaNombre?: string;
 }>();
 
 const store = usePreinscripcionStore();
 
+
 const form = reactive({
-  oferta_programa_id: props.ofertaProgramaId,
+  oferta_programa_id: props.ofertaProgramaId ?? 0,
   tipo_documento: '',
   numero_documento: '',
   nombres: '',
@@ -19,16 +21,32 @@ const form = reactive({
   telefono: ''
 });
 
+import { ref } from 'vue';
+
+const errorOfertaPrograma = ref('');
+
 const submit = async () => {
-  await store.enviar(form);
+  errorOfertaPrograma.value = '';
+  if (!form.oferta_programa_id || form.oferta_programa_id === 0) {
+    errorOfertaPrograma.value = 'El ID de la oferta de programa es obligatorio y debe ser un número válido.';
+    return;
+  }
+  // Aseguramos que siempre sea number
+  await store.enviar({
+    ...form,
+    oferta_programa_id: Number(form.oferta_programa_id)
+  });
 };
 </script>
 
 <template>
   <form @submit.prevent="submit">
-    <div v-if="form.oferta_programa_id">
+    <div v-if="form.oferta_programa_id && props.programaNombre">
       <label>Oferta:</label>
       <h2>{{ props.programaNombre }}</h2>
+    </div>
+    <div v-if="errorOfertaPrograma" style="color: red; margin-bottom: 8px;">
+      {{ errorOfertaPrograma }}
     </div>
     <div>
       <input v-model="form.tipo_documento" placeholder="Tipo de documento" />

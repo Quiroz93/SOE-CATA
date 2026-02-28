@@ -28,6 +28,8 @@ export const useProgramasStore = defineStore('programas', {
       try {
         const response = await programasService.obtenerPorSlug(slug);
         this.programaActual = response.data;
+      } catch (error) {
+        this.programaActual = null;
       } finally {
         this.loading = false;
       }
