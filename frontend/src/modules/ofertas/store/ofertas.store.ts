@@ -14,7 +14,9 @@ export const useOfertasStore = defineStore('ofertas', {
       this.loading = true;
       this.error = null;
       try {
-        this.ofertas = await getOfertas();
+        const result = await getOfertas();
+        console.log('Ofertas recibidas:', result);
+        this.ofertas = result;
       } catch (e: any) {
         this.error = e.message || 'Error al cargar ofertas';
       } finally {
@@ -34,6 +36,7 @@ export const useOfertasStore = defineStore('ofertas', {
     },
   },
   getters: {
-    ofertasDisponibles: (state) => state.ofertas.filter(o => o.cupos > 0),
+    // Filtra ofertas activas
+    ofertasDisponibles: (state) => state.ofertas.filter(o => o.activo === 1),
   },
 });

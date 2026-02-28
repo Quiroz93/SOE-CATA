@@ -4,6 +4,7 @@ export interface OfertaPrograma {
   fecha_inicio: string;
   fecha_fin: string;
   modalidad: string;
+  activo: number; // 1 = activo, 0 = inactivo
   programa: {
     id: number;
     nombre: string;
