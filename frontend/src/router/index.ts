@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
         component: ProgramasView,
       },
       {
-        path: 'programas/:slug',
+        path: 'programas/:id',
         name: 'ProgramaDetalleView',
         component: ProgramaDetalleView,
       },
@@ -41,7 +41,7 @@ const routes: Array<RouteRecordRaw> = [
         component: OfertasView,
       },
       {
-        path: 'ofertas/:id',
+        path: 'ofertas/:slug',
         name: 'OfertaDetalle',
         component: OfertaDetalle,
         props: true,

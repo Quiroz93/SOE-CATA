@@ -4,5 +4,6 @@ export interface Programa {
   slug: string;
   descripcion: string;
   nivel: string;
+  municipio: string;
   estado: string;
 }

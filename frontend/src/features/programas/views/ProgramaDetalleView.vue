@@ -8,7 +8,10 @@ const route = useRoute();
 const store = useProgramasStore();
 
 onMounted(() => {
-  store.fetchProgramaDetalle(route.params.slug as string);
+  const id = Number(route.params.id);
+  if (id) {
+    store.fetchProgramaDetalle(id);
+  }
 });
 </script>
 

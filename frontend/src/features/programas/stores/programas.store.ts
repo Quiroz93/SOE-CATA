@@ -27,10 +27,10 @@ export const useProgramasStore = defineStore('programas', {
       }
     },
 
-    async fetchProgramaDetalle(slug: string) {
+    async fetchProgramaDetalle(id: number) {
       this.loading = true;
       try {
-        const response = await programasService.obtenerPorSlug(slug);
+        const response = await programasService.obtenerPorId(id);
         this.programaActual = response.data;
       } catch (error) {
         this.programaActual = null;

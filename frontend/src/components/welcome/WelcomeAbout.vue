@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <h2>Sobre Nosotros</h2>
-        <p>En <SPAN class="nombre-centro">SENA CATA</SPAN>, estamos dedicados a proporcionar educación de calidad y oportunidades de aprendizaje para todos. Nuestra misión es empoderar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.</p>
+        <p>En <span class="nombre-centro">SENA CATA</span>, estamos dedicados a proporcionar educación de calidad y oportunidades de aprendizaje para todos. Nuestra misión es empoderar a los estudiantes con las habilidades y conocimientos necesarios para prosperar en un mundo en constante cambio.</p>
         <div class="features-container">
           <div class="feature" v-for="feature in features" :key="feature.title">
             <div class="icon">

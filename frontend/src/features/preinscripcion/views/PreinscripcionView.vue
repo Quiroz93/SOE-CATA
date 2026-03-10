@@ -12,9 +12,8 @@ const programaNombre = ref('');
 onMounted(async () => {
   if (programaId) {
     try {
-      const { data } = await programasService.listar();
-      const programa = data.find((p: any) => p.id === programaId);
-      programaNombre.value = programa ? programa.nombre : '';
+      const { data } = await programasService.obtenerPorId(programaId);
+      programaNombre.value = data?.nombre ?? '';
     } catch (e) {
       programaNombre.value = '';
     }

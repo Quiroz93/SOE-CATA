@@ -21,7 +21,7 @@
     <!-- Botón -->
     <div :class="$style.acciones">
       <router-link
-        :to="`/programas/${programa.slug}`"
+        :to="`/programas/${programa.id}`"
         :class="$style.botonPrincipal"
       >
         Ver detalle
